@@ -6,6 +6,7 @@ from matplotlib.figure import Figure
 
 import tkinter as tk
 from tkinter import ttk
+import matplotlib.pyplot as plt
 
 
 LARGE_FONT= ("Verdana", 12)
@@ -112,12 +113,45 @@ class PageThree(tk.Frame):
         button1.pack()
 
         f = Figure(figsize=(5,5), dpi=100)
-        a = f.add_subplot(111)
-        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
-
+#        #fig, (ax1, ax2) = f.subplots(2)
+#        #fig.suptitle('Vertically stacked subplots')
+#        #ax1.plot([1,2,3,4,5,6,7,8], [5,6,1,3,8,9,3,5])
+#        #ax2.plot([1,2,3,4,5,6,7,8], -[5,6,1,3,8,9,3,5])
+#        a = f.add_subplot(521)
+#        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+#        a = f.add_subplot(522)
+#        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+#        a = f.add_subplot(522)
+#        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+#        a = f.add_subplot(523)
+#        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+#        a = f.add_subplot(524)
+#        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+#        a = f.add_subplot(525)
+#        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+#        a = f.add_subplot(526)
+#        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+#        a = f.add_subplot(527)
+#        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+#        a = f.add_subplot(528)
+#        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+#        a = f.add_subplot(529)
+#        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+#        a = f.add_subplot(529)
+#        a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+#        
+        
         
 
-        canvas = FigureCanvasTkAgg(f, self)
+        k = plt.figure(0)
+        plots = []
+
+        for i in range(5):
+            for j in range(4):
+                ax = plt.subplot2grid((5,4), (i,j))
+                ax.scatter(range(20),range(20)+np.random.randint(-5,5,20))
+                
+        canvas = FigureCanvasTkAgg(k, self)
         canvas.show()
         canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
